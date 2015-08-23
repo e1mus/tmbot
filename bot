@@ -38,6 +38,10 @@ if __name__ == '__main__':
                 logging.warning(str(e))
                 
                 
+                def send_reply(response):
+    if 'text' in response:
+        api.post(URL + "sendMessage", data=response)
+                
                 def help_message(arguments, message):
     response = {'chat_id': message['chat']['id']}
     result = ["Hey, %s!" % message["from"].get("first_name"),
